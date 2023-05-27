@@ -1,0 +1,140 @@
+.headercontainer {
+  height: 10vh;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.HeaderRightMenu {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  width: 25vw;
+}
+
+.hamburger {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  padding: 0;
+  display: none;
+}
+.hamburgerExpanded {
+  transform: rotate(0.25turn);
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+.icons {
+  color: black;
+  width: 1rem;
+  height: 1rem;
+}
+
+.title {
+  line-height: 1.15;
+  font-size: 1.5em;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: black;
+}
+
+.brandNameLong {
+  font-size: 2.5em;
+  color: #e74425;
+  font-family: "Modern Love";
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brandNameShort {
+  font-size: 2.5em;
+  color: #e74425;
+  font-family: "Modern Love";
+  text-decoration: none;
+  white-space: nowrap;
+  display: none;
+}
+
+.navigationMenu {
+  display: flex;
+}
+
+.navigationMenu ul {
+  display: flex;
+  padding: 0;
+}
+
+.navigationMenu div {
+  margin: 0 1rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.navigationMenu div:hover {
+  border-bottom: 2px solid #e74425;
+}
+
+.navigationMenu div a {
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .navigationMenu ul {
+    margin: 0;
+    padding: 0;
+    padding-top: 2vh;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    background-color: white;
+    border-top: 1px solid rgb(230, 230, 230);
+    display: none;
+  }
+  .navigationMenu div {
+    text-align: center;
+    margin: 0;
+  }
+
+  .navigationMenu div a {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    color: black;
+  }
+
+  .navigationMenu div:hover {
+    border-bottom: none;
+  }
+  .navigationMenuExpanded ul {
+    display: block;
+  }
+
+  .brandNameLong {
+    display: none;
+  }
+  .brandNameShort {
+    display: block;
+  }
+  .title {
+    font-size: 1.3em;
+    letter-spacing: 0.1em;
+  }
+}
