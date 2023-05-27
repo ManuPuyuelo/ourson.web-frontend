@@ -51,19 +51,10 @@
 
 .brandNameLong {
   font-size: 2.5em;
-  color: #e74425;
+  color: black;
   font-family: "Modern Love";
   text-decoration: none;
   white-space: nowrap;
-}
-
-.brandNameShort {
-  font-size: 2.5em;
-  color: #e74425;
-  font-family: "Modern Love";
-  text-decoration: none;
-  white-space: nowrap;
-  display: none;
 }
 
 .navigationMenu {

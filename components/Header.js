@@ -16,8 +16,6 @@ function Header() {
   const getTitle = () => {
     if (pathname === "/") {
       return "";
-    } else if (pathname === "/portfolio") {
-      return "PORTFOLIO";
     } else if (pathname === "/contact") {
       return "CONTACT";
     } else {
@@ -32,10 +30,7 @@ function Header() {
       <div className={styles.HeaderRightMenu}>
         <nav>
           <a href="/" className={styles.brandNameLong}>
-            Manu Puyuelo
-          </a>
-          <a href="/" className={styles.brandNameShort}>
-            M.P.
+            Ourson
           </a>
         </nav>
       </div>
@@ -50,9 +45,6 @@ function Header() {
             <ul>
               <div>
                 <a href="/">Accueil</a>
-              </div>
-              <div>
-                <a href="/portfolio">Portfolio</a>
               </div>
               <div>
                 <a href="/contact">Contact</a>

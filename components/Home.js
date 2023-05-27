@@ -10,19 +10,21 @@ function Home() {
     <main className={styles.main}>
       <div className={styles.firstSection}>
         <div className={styles.container1}>
-          <h1 className={styles.title}>Développeur Fullstack</h1>
+          <h1 className={styles.title}>
+            L'app qui vous donne un coup de patte
+          </h1>
           <p className={styles.titleText}>
-            JS, HTML, CSS<br></br>React, React Native, Express
+            Des recettes simples <br></br>pour vous et votre enfant
           </p>
           <div className={styles.heroButtons}>
             <div className={styles.heroButton}>
               <a href="/portfolio">
-                <p>DERNIERS PROJETS</p>
+                <p>DÉCOUVRIR</p>
               </a>
             </div>
             <div className={styles.heroButton}>
               <a href="/contact">
-                <p>ME CONTACTER</p>
+                <p>NOUS CONTACTER</p>
               </a>
             </div>
           </div>
