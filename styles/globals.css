@@ -1,9 +1,4 @@
 @font-face {
-  font-family: "Modern Love";
-  src: url("../public/ModernLoveFont.ttf") format("truetype");
-}
-
-@font-face {
   font-family: "Bryndan Write";
   src: url("../public/Bryndan_Write.ttf") format("truetype");
 }

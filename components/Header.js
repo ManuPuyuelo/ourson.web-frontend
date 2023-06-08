@@ -47,7 +47,7 @@ function Header() {
                 <a href="/">Accueil</a>
               </div>
               <div>
-                <a href="/contact">Contact</a>
+                <a href="/demo">Demo</a>
               </div>
             </ul>
             <button

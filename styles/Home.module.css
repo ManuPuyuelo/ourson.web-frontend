@@ -5,22 +5,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fcece9;
+  background-color: white;
   box-sizing: border-box;
   cursor: inherit;
 }
 
 /*First Section with background image and button*/
 .firstSection {
-  height: 100vh;
+  margin-top: 10vh;
+  height: 90vh;
   width: 100%;
   max-width: 100%;
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.5),
-      rgba(255, 255, 255, 0)
-    ),
-    url("../public/home1Pic.jpeg");
+  background-color: #ffda57;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -33,88 +29,156 @@
   padding: 8vw;
   width: 100%;
   max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title {
   margin: 0;
   padding: 0;
-  font-size: 3em;
+  font-size: 4em;
   line-height: 1em;
-  color: white;
+  color: #57a6ff;
+  font-family: "Bryndan Write";
 }
 
 .titleText {
-  font-size: 1.5em;
-  line-height: 1em;
-  color: white;
-  font-weight: bold;
+  font-weight: normal;
+  font-size: 1.3em;
+  line-height: 1.6em;
+  text-align: justify;
+  color: black;
 }
 
+.projectImage0 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.projectImage1 {
+  border-radius: 6px;
+  background-color: #ffda57;
+}
+
+.projectImage2 {
+  background-image: url("../public/squareOursonTransparent.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+}
 .heroButtons {
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 1.3em;
   margin-top: 2em;
+  position: relative;
 }
 
-.heroButton {
+.heroButtonGoogle {
   width: 12rem;
-  background-color: #fff;
-  border: 0.13rem solid WHITE;
-  border-radius: 0.3rem;
-  color: #000;
-  transition: all 0.4s ease-out;
-  cursor: pointer;
+  height: 3.8rem;
+  border-radius: 0.5rem;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../public/googleplayBadge.png");
+  background-size: 12rem 3.8rem;
+}
+.heroButtonApple {
+  width: 12rem;
+  height: 3.8rem;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../public/appstoreBadge.svg");
+  background-size: 12rem 3.8rem;
 }
 
-.heroButton:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+.arrowContainer {
+  position: absolute;
+  display: flex;
+}
+.arrowEmpty {
+  width: 18.3rem;
 }
 
-.heroButton a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: inherit;
-  padding: 0.625rem;
-  text-align: center;
-  letter-spacing: 0.1em;
-}
-
-.heroButton p {
-  margin: 0;
-  padding: 0;
-  font-size: 1em !important;
+.arrowWIP {
+  width: 12rem;
+  height: 8.3rem;
+  background-image: url("../public/ComingSoonWhite.svg");
+  background-size: contain;
 }
 
 @media screen and (max-width: 768px) {
-  .heroButton {
-    width: 12rem;
+  .container1 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-
-  .heroButton a {
-    font-size: 0.9em;
-    letter-spacing: 0.1em;
+  .projectImage0 {
+    height: 70vw;
+    width: 70vw;
   }
-
-  .heroButton:hover {
-    color: black;
-    background-color: #fff;
+  .projectDescription1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .title {
-    font-size: 2.5em;
+    font-size: 3em;
+    line-height: 1em;
+    text-align: center;
   }
 
   .titleText {
-    font-size: 1.2em;
+    font-size: 1em;
+    line-height: 1.2em;
+    text-align: center;
   }
 
   .heroButtons {
     flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
+    position: initial;
+    margin-top: 1em;
+  }
+
+  .arrowContainer {
+    position: initial;
+  }
+  .arrowEmpty {
+    width: 00rem;
+  }
+  .arrowWIP {
+    width: 8rem;
+    height: 5.5rem;
+    margin-top: 1em;
+    background-image: url("../public/ComingSoonWhite.svg");
+    background-size: contain;
+  }
+
+  .container1 {
+    padding: 4vw;
   }
 }
 
@@ -126,94 +190,4 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.container2 {
-  padding-left: 8vw;
-  padding-right: 8vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.projectImage0 {
-  height: 40vw;
-  width: 40vw;
-}
-
-.projectImage1 {
-  border-radius: 1rem;
-  background-image: url("../public/squareBackground.png");
-  background-size: contain;
-  background-position: center;
-  position: relative;
-}
-
-.projectImage2 {
-  background-image: url("../public/squareOursonTransparent.png");
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.projectDescription1 {
-  width: calc(50% -8rem);
-  padding-left: 8rem;
-  overflow: visible;
-}
-
-.projectDescription1 h2 {
-  font-family: "Bryndan Write";
-  font-size: 5em;
-  margin: 0;
-  padding: 0;
-}
-
-.projectDescription1 p {
-  font-size: 1.3em;
-  line-height: 1.6em;
-  text-align: justify;
-}
-
-.heroButton2 a {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-}
-
-.heroButton2:hover {
-  background-color: transparent;
-  color: black;
-}
-
-@media screen and (max-width: 768px) {
-  .container2 {
-    flex-direction: column;
-    align-items: space-between;
-    justify-content: center;
-  }
-  .projectImage0 {
-    height: 70vw;
-    width: 70vw;
-  }
-  .projectDescription1 {
-    width: calc(100%);
-    padding-left: 0;
-  }
-
-  .projectDescription1 h2 {
-    font-size: 4em;
-    text-align: center;
-  }
-
-  .projectDescription1 p {
-    font-size: 1.2em;
-    line-height: 1.2em;
-  }
-  .heroButton2:hover {
-    background-color: white;
-    color: black;
-  }
 }

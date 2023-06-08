@@ -10,28 +10,6 @@ function Home() {
     <main className={styles.main}>
       <div className={styles.firstSection}>
         <div className={styles.container1}>
-          <h1 className={styles.title}>
-            L'app qui vous donne un coup de patte
-          </h1>
-          <p className={styles.titleText}>
-            Des recettes simples <br></br>pour vous et votre enfant
-          </p>
-          <div className={styles.heroButtons}>
-            <div className={styles.heroButton}>
-              <a href="/portfolio">
-                <p>DÉCOUVRIR</p>
-              </a>
-            </div>
-            <div className={styles.heroButton}>
-              <a href="/contact">
-                <p>NOUS CONTACTER</p>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.secondSection}>
-        <div className={styles.container2}>
           <div
             className={[styles.projectImage0, styles.projectImage1].join(" ")}
           >
@@ -42,39 +20,37 @@ function Home() {
               src="https://assets2.lottiefiles.com/packages/lf20_sg5agyvh.json"
               className={styles.projectImage0}
             ></Player>
-
             <div
-              className={[
-                styles.projectImage0,
-                styles.projectImage1,
-                styles.projectImage2,
-              ].join(" ")}
+              className={[styles.projectImage0, styles.projectImage2].join(" ")}
             ></div>
           </div>
 
           <div className={styles.projectDescription1}>
-            <h2>Ourson</h2>
-            <p>
+            <h1 className={styles.title}>
+              Ourson, l'app qui vous donne un coup de patte
+            </h1>
+            <h2 className={styles.titleText}>
               Ourson est la 1ère app intelligente qui vous donne un coup de
               patte concernant l’éveil de votre enfant sur 3 aspects :
               nutrition, suivi du sommeil et activités.
-            </p>
+            </h2>
+
             <div className={styles.heroButtons}>
-              <div
-                className={[styles.heroButton, styles.heroButton2].join(" ")}
-              >
-                <a href="/contact">
-                  <p>DÉCOUVRIR </p>
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </a>
+              <div className={styles.heroButton}>
+                <div className={styles.heroButtonGoogle} />
               </div>
+              <div className={styles.heroButton}>
+                <div className={styles.heroButtonApple} />
+              </div>
+            </div>
+            <div className={styles.arrowContainer}>
+              <div className={styles.arrowEmpty}></div>
+              <div className={styles.arrowWIP}></div>
             </div>
           </div>
         </div>
       </div>
-      <div className={styles.thirdSection}>
-        <div className={styles.container3}></div>
-      </div>
+      {/* <div className={styles.secondSection}></div> */}
     </main>
   );
 }
