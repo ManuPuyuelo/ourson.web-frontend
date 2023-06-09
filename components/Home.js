@@ -1,11 +1,30 @@
 import styles from "../styles/Home.module.css";
 
+import React, { useEffect, useState } from "react";
+
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 980px)");
+
+    const handleMediaQueryChange = (event) => {
+      setIsSmallScreen(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    setIsSmallScreen(mediaQuery.matches);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
   return (
     <main className={styles.main}>
       <div className={styles.firstSection}>
@@ -27,7 +46,12 @@ function Home() {
 
           <div className={styles.projectDescription1}>
             <h1 className={styles.title}>
-              Ourson, l'app qui vous donne un coup de patte
+              <span className={styles.title_ourson}>
+                Ourson,{isSmallScreen && <br />}{" "}
+              </span>
+              <span className={styles.title_app}>
+                l'app qui vous donne un coup de patte
+              </span>
             </h1>
             <h2 className={styles.titleText}>
               Ourson est la 1ère app intelligente qui vous donne un coup de
