@@ -4,9 +4,6 @@ import React, { useEffect, useState } from "react";
 
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
 function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
