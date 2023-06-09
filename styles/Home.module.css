@@ -224,6 +224,9 @@
 }
 
 @media screen and (max-width: 355px) {
+  .firstSection {
+    height: 100%;
+  }
   .title {
     font-size: 1.5em;
     line-height: 1em;
