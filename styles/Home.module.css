@@ -1,5 +1,5 @@
 .main {
-  width: 100%;
+  width: 100vw;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,7 @@
 
 /*First Section with background image and button*/
 .firstSection {
+  height: 90vh;
   margin-top: 10vh;
   width: 100%;
   max-width: 100%;
@@ -124,11 +125,27 @@
   background-size: contain;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1435px) {
+  .title {
+    font-size: 3em;
+    line-height: 1em;
+  }
+
+  .titleText {
+    font-size: 1.1em;
+    line-height: 1.6em;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .firstSection {
+    height: 100%;
+  }
   .container1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 4vw;
   }
   .projectImage0 {
     height: 70vw;
@@ -160,9 +177,11 @@
     position: initial;
     margin-top: 1em;
   }
-
+  .arrowContainer {
+    display: flex;
+  }
   .arrowEmpty {
-    width: 00rem;
+    width: 12rem;
   }
   .arrowWIP {
     width: 8rem;
@@ -171,12 +190,37 @@
     background-image: url("../public/comingSoonWhite.svg");
     background-size: contain;
   }
+}
 
-  .container1 {
-    padding: 4vw;
+@media screen and (max-width: 540px) {
+  .title {
+    font-size: 2em;
+    line-height: 1em;
+    text-align: center;
+  }
+
+  .titleText {
+    font-size: 1em;
+    line-height: 1.2em;
+    text-align: center;
+  }
+
+  .arrowContainer {
+    justify-content: flex-end;
+    width: 70vw;
+  }
+  .arrowEmpty {
+    width: 00rem;
   }
 }
 
+@media screen and (max-width: 355px) {
+  .title {
+    font-size: 1.5em;
+    line-height: 1em;
+    text-align: center;
+  }
+}
 /*Second Section with background image and button*/
 .secondSection {
   height: 90vh;
