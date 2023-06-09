@@ -13,7 +13,6 @@
 /*First Section with background image and button*/
 .firstSection {
   margin-top: 10vh;
-
   width: 100%;
   max-width: 100%;
   background-color: #ffda57;
@@ -112,7 +111,6 @@
 }
 
 .arrowContainer {
-  position: absolute;
   display: flex;
 }
 .arrowEmpty {
@@ -163,9 +161,6 @@
     margin-top: 1em;
   }
 
-  .arrowContainer {
-    position: initial;
-  }
   .arrowEmpty {
     width: 00rem;
   }
