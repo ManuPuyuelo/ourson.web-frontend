@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <div className={styles.headercontainer}>
-      <div className={styles.HeaderRightMenu}>
+      <div className={styles.HeaderLogo}>
         <nav>
           <a href="/" className={styles.brandNameLong}>
             Ourson

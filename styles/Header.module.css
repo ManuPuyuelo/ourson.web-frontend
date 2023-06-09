@@ -1,6 +1,8 @@
 .headercontainer {
   height: 10vh;
   width: 100vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -9,12 +11,14 @@
   top: 0;
 }
 
+.HeaderLogo,
+.HeaderRightMenu {
+  width: 25vw;
+}
+
 .HeaderRightMenu {
   display: flex;
   justify-content: space-around;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  width: 25vw;
 }
 
 .hamburger {
@@ -64,10 +68,10 @@
 .navigationMenu ul {
   display: flex;
   padding: 0;
+  gap: 2rem;
 }
 
 .navigationMenu div {
-  margin: 0 1rem;
   height: 2rem;
   display: flex;
   align-items: center;
