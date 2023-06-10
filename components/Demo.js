@@ -43,6 +43,7 @@ function Demo() {
             loop
             muted
             playsinline
+            autoplay
             onEnded={() => videoRef.current.play()}
             onClick={handleVideoClick}
           >
