@@ -41,7 +41,6 @@ function Demo() {
             ref={videoRef}
             controls
             loop
-            autoPlay
             onEnded={() => videoRef.current.play()}
             onClick={handleVideoClick}
           >
