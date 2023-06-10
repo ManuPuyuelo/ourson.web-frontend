@@ -37,7 +37,7 @@ function App({ Component, pageProps }) {
         <meta property="og:url" content="https://www.ourson.app" />
         <meta
           property="og:image"
-          content="https://www.ourson.app/_next/static/media/squareOursonTransparent.c31350e3.webp"
+          content="https://res.cloudinary.com/djfrwyodt/image/upload/v1686416967/squareOursonBackground_d4czmc.webp"
         />
         <title>Ourson, l'app qui vous donne un coup de patte</title>
         <script
@@ -47,7 +47,7 @@ function App({ Component, pageProps }) {
               {
                 "@context": "https://schema.org",
                 "@type": "ImageObject",
-                "url": "https://www.ourson.app/_next/static/media/squareOursonTransparent.c31350e3.webp",
+                "url": "https://res.cloudinary.com/djfrwyodt/image/upload/v1686416967/squareOursonBackground_d4czmc.webp",
                 "width": "1299",
                 "height": "1299"
               }
