@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from "react";
 function Demo() {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const handleVideoClick = () => {
     if (isPlaying) {
@@ -14,6 +15,17 @@ function Demo() {
     }
     setIsPlaying(!isPlaying);
   };
+  useEffect(() => {
+    const handleLoadedData = () => {
+      setVideoLoaded(true);
+    };
+
+    videoRef.current.addEventListener("loadeddata", handleLoadedData);
+
+    return () => {
+      videoRef.current.removeEventListener("loadeddata", handleLoadedData);
+    };
+  }, []);
 
   return (
     <main className={styles.main}>
@@ -46,6 +58,7 @@ function Demo() {
             preload="metadata"
             onEnded={() => videoRef.current.play()}
             onClick={handleVideoClick}
+            style={{ display: videoLoaded ? "block" : "none" }}
           >
             <source src="/demoOursonReduced.mp4" type="video/mp4" />
             Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
