@@ -40,10 +40,10 @@ function Demo() {
             className={styles.video}
             ref={videoRef}
             controls
-            loop
             muted
-            playsinline
-            autoplay
+            loop
+            poster="/posterVideo.webp"
+            preload="metadata"
             onEnded={() => videoRef.current.play()}
             onClick={handleVideoClick}
           >
