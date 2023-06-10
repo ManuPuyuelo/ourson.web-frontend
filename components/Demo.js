@@ -41,6 +41,8 @@ function Demo() {
             ref={videoRef}
             controls
             loop
+            muted
+            playsinline
             onEnded={() => videoRef.current.play()}
             onClick={handleVideoClick}
           >
