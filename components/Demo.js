@@ -1,6 +1,6 @@
 import styles from "../styles/Demo.module.css";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 function Demo() {
   const videoRef = useRef(null);
@@ -14,6 +14,7 @@ function Demo() {
     }
     setIsPlaying(!isPlaying);
   };
+
   return (
     <main className={styles.main}>
       <div className={styles.firstSection}>
@@ -40,6 +41,7 @@ function Demo() {
             ref={videoRef}
             controls
             loop
+            autoPlay
             onEnded={() => videoRef.current.play()}
             onClick={handleVideoClick}
           >
