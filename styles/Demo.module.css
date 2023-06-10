@@ -26,6 +26,8 @@
 }
 
 .container1 {
+  margin-top: 8vw;
+  margin-bottom: 8vw;
   padding: 4vw;
   padding-right: 8vw;
   padding-left: 8vw;
@@ -84,20 +86,6 @@
     padding-right: 4vw;
     padding-left: 4vw;
     gap: 1em;
-  }
-  .textContainer {
-    width: 50vw;
-  }
-  .title {
-    font-size: 2.5em;
-    line-height: 1em;
-    text-align: center;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .firstSection {
-    height: 100%;
   }
   .title {
     font-size: 2em;
