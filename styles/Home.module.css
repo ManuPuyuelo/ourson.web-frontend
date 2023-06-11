@@ -205,8 +205,8 @@
     padding: 4vw;
   }
   .projectImage0 {
-    height: 90vw;
-    width: 90vw;
+    height: 70vw;
+    width: 70vw;
   }
   .projectDescription1 {
     display: flex;
@@ -277,6 +277,10 @@
   .arrowEmpty {
     width: 00rem;
   }
+  .projectImage0 {
+    height: 80vw;
+    width: 80vw;
+  }
 }
 
 @media screen and (max-width: 355px) {
@@ -284,6 +288,10 @@
     font-size: 1.5em;
     line-height: 1em;
     text-align: center;
+  }
+  .projectImage0 {
+    height: 90vw;
+    width: 90vw;
   }
 }
 /*Second Section with background image and button*/
