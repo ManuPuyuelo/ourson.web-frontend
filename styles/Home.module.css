@@ -205,8 +205,8 @@
     padding: 4vw;
   }
   .projectImage0 {
-    height: 60vw;
-    width: 60vw;
+    height: 50vw;
+    width: 50vw;
   }
   .projectDescription1 {
     display: flex;
@@ -254,6 +254,13 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .projectImage0 {
+    height: 60vw;
+    width: 60vw;
+  }
+}
+
 @media screen and (max-width: 540px) {
   .firstSection {
     height: 100%;
@@ -280,6 +287,9 @@
   .projectImage0 {
     height: 60vw;
     width: 90vw;
+  }
+  .projectDescription1 {
+    margin-top: 10px;
   }
 }
 
