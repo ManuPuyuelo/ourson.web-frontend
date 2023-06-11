@@ -205,8 +205,8 @@
     padding: 4vw;
   }
   .projectImage0 {
-    height: 70vw;
-    width: 70vw;
+    height: 60vw;
+    width: 60vw;
   }
   .projectDescription1 {
     display: flex;
@@ -278,7 +278,7 @@
     width: 00rem;
   }
   .projectImage0 {
-    height: 80vw;
+    height: 60vw;
     width: 80vw;
   }
 }
@@ -290,7 +290,7 @@
     text-align: center;
   }
   .projectImage0 {
-    height: 70vw;
+    height: 60vw;
     width: 90vw;
   }
 }
