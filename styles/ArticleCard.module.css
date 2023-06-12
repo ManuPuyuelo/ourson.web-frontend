@@ -1,37 +1,52 @@
-.main {
-  width: 100vw;
-  max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  box-sizing: border-box;
-  cursor: inherit;
+.articles {
+  width: 400px;
+  height: 400px;
+  margin: 10px;
 }
 
-/*First Section with background image and button*/
-.firstSection {
-  height: 90vh;
-  margin-top: 10vh;
+.divider {
   width: 100%;
-  max-width: 100%;
-  background-color: #ffda57;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  height: 1px;
+  background-color: rgb(233, 190, 89);
+  margin: 15px 0px 15px 0px;
 }
 
-.container1 {
-  padding-left: 8vw;
-  padding-right: 8vw;
-  width: 100%;
-  max-width: 100%;
+.articleHeader {
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  height: 40px;
+}
+.articleHeader a {
+  width: 85%;
+}
+
+.linkToArticle {
+  text-decoration: none;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.articleTitle {
+  width: 100%;
+}
+
+.articleTitle:hover {
+  color: rgb(233, 190, 89);
+}
+
+.bookmarkIcon {
+  cursor: pointer;
+}
+
+.bookmarkIcon:hover {
+  opacity: 0.6;
+}
+
+.hideIcon {
+  cursor: pointer;
+}
+
+.hideIcon:hover {
+  opacity: 0.6;
 }

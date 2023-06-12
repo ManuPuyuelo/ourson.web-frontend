@@ -59,7 +59,7 @@ function Header() {
               </div>
               <div
                 className={`${
-                  currentScreen === "Blog" ? styles.navigationMenuActive : ""
+                  pathname.includes("/blog") ? styles.navigationMenuActive : ""
                 }`}
               >
                 <a href="/blog">Blog</a>

@@ -1,14 +1,29 @@
 import styles from "../styles/ArticleCard.module.css";
-
 import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
-function ArticleCard() {
+function ArticleCard(props) {
   return (
-    <main className={styles.main}>
-      <div className={styles.firstSection}>
-        <div className={styles.container}></div>
+    <div className={styles.articles}>
+      <div className={styles.articleHeader}>
+        <a className={styles.linkToArticle} href={props.url}>
+          <h3 className={styles.articleTitle}>{props.title}</h3>
+        </a>
       </div>
-    </main>
+      <h4 style={{ textAlign: "right" }}>- {props.author}</h4>
+      <div className={styles.divider}></div>
+      <a className={styles.linkToArticle} href={props.url}>
+        {props.urlToImage && (
+          <Image
+            src={props.urlToImage}
+            alt={props.title}
+            width={600}
+            height={314}
+          />
+        )}
+        <p>{props.description}</p>
+      </a>
+    </div>
   );
 }
 
