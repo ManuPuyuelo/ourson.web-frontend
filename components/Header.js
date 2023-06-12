@@ -12,12 +12,13 @@ function Header() {
   const router = useRouter();
   //destructuration, on va declarer une variable pathname qui va chercher la propriété router.pathname
   const { pathname } = router;
-
   const getTitle = () => {
     if (pathname === "/") {
-      return "";
-    } else if (pathname === "/contact") {
-      return "CONTACT";
+      return "Accueil";
+    } else if (pathname === "/demo") {
+      return "Demo";
+    } else if (pathname === "/blog") {
+      return "Blog";
     } else {
       return "";
     }
@@ -34,7 +35,6 @@ function Header() {
           </a>
         </nav>
       </div>
-      <h1 className={styles.title}>{currentScreen}</h1>
       <div className={styles.HeaderRightMenu}>
         <nav>
           <div
@@ -43,11 +43,26 @@ function Header() {
             }`}
           >
             <ul>
-              <div>
+              <div
+                className={`${
+                  currentScreen === "Accueil" ? styles.navigationMenuActive : ""
+                }`}
+              >
                 <a href="/">Accueil</a>
               </div>
-              <div>
+              <div
+                className={`${
+                  currentScreen === "Demo" ? styles.navigationMenuActive : ""
+                }`}
+              >
                 <a href="/demo">Demo</a>
+              </div>
+              <div
+                className={`${
+                  currentScreen === "Blog" ? styles.navigationMenuActive : ""
+                }`}
+              >
+                <a href="/blog">Blog</a>
               </div>
             </ul>
             <button

@@ -78,6 +78,10 @@
   align-items: center;
 }
 
+.navigationMenuActive {
+  border-bottom: 2px solid #e74425;
+}
+
 .navigationMenu div:hover {
   border-bottom: 2px solid #e74425;
 }
@@ -116,9 +120,14 @@
     color: black;
   }
 
+  .navigationMenuActive {
+    border-bottom: none;
+  }
+
   .navigationMenu div:hover {
     border-bottom: none;
   }
+
   .navigationMenuExpanded ul {
     display: block;
   }

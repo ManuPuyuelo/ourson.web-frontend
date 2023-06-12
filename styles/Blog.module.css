@@ -1,0 +1,47 @@
+.main {
+  width: 100vw;
+  max-width: 100%;
+}
+
+/*First Section with background image and button*/
+.firstSection {
+  height: 90vh;
+  margin-top: 10vh;
+  width: 100%;
+  max-width: 100%;
+  background-color: #ffda57;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  padding-top: 4vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.sectionLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  border: 2px solid #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.sectionLinkActive {
+  background-color: #ffff;
+  color: #333;
+}
+
+.sectionLink:hover {
+  background-color: #ffff;
+  color: #333;
+}
