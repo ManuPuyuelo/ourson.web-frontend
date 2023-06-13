@@ -56,6 +56,30 @@
   border-radius: 1em;
 }
 
+.breadcrumbs {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 5px;
+  list-style: none;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #ffda57;
+}
+
+.breadcrumbs .breadcrumbArrow {
+  color: #333;
+}
+
 .articleContainer {
   margin-top: 4vw;
   display: flex;

@@ -3,11 +3,12 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import ArticleCard from "../components/ArticleCard";
+import CleanURL from "../modules/cleanURL";
 
 function Blog() {
   const router = useRouter();
-  //destructuration, on va declarer une variable pathname qui va chercher la propriété router.pathname
 
+  // SECTIONCONTENT -  Function creation to put page content depending of which page we are at
   const getPageContent = () => {
     const sectionName = router.query.sectionName || "toutes-les-sections";
     let content = {
@@ -53,35 +54,102 @@ function Blog() {
     return content;
   };
 
-  // Utilisation de la fonction
+  // SECTIONCONTENT -  Use of the function to put its info inside a variable
   const pageContent = getPageContent();
 
-  const sections = [
+  // BREADCRUMBS - Create a path depending of current URL
+  const breadcrumbs = [];
+  const pathArray = router.asPath
+    .split("?")[0]
+    .split("/")
+    .filter((p) => p);
+
+  pathArray.reduce((prev, curr, index) => {
+    const path = `${prev}/${curr}`;
+    breadcrumbs.push({ name: curr, path: path });
+    return path;
+  }, "");
+
+  const breadcrumbsElements = breadcrumbs.map((breadcrumb, i) => (
+    <React.Fragment key={i}>
+      <li
+        itemProp="itemListElement"
+        itemScope=""
+        itemType="http://schema.org/ListItem"
+        className="breadcrumbs"
+      >
+        <Link itemProp="item" href={breadcrumb.path}>
+          <a itemProp="name">{breadcrumb.name}</a>
+        </Link>
+      </li>
+      <meta itemProp="position" content={i + 1} />
+      {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
+    </React.Fragment>
+  ));
+
+  // SECTIONS - Creation of a variable to create 4sections/url depending of articles sections
+  const sectionsList = [
     { name: "Toutes les sections", emoji: "💎 " },
     { name: "Nutrition", emoji: "🥦 " },
     { name: "Sommeil", emoji: "💤 " },
     { name: "Activités", emoji: "🎈 " },
   ];
 
-  const [pageIndex, setPageIndex] = useState(0);
+  // SECTIONS - Use of the sections to create 4 buttons above which can filter articles with their own url
+  const sections = sectionsList.map((section, i) => (
+    <Link key={i} href={`/blog/${CleanURL(section.name)}`}>
+      <a
+        className={`${styles.sectionLink} ${
+          pageContent.currentScreen === section.name
+            ? styles.sectionLinkActive
+            : ""
+        }`}
+      >
+        <span role="img" aria-label={section.name}>
+          {section.emoji}
+        </span>
+        {section.name}
+      </a>
+    </Link>
+  ));
+
+  // PAGINATION -  Get the page number from the URL
+  const pageFromQuery = parseInt(router.query.page, 10) || 1;
+  // PAGINATION - Creation of states to use pagination in the page
   const [isEndOfData, setIsEndOfData] = useState(false);
   const [isBeginningOfData, setIsBeginningOfData] = useState(false);
 
-  const [articlesData, setArticlesData] = useState([]);
-
-  // Suppose totalArticles is 100 but it will be the number in database
+  // PAGINATION - Suppose totalArticles is 100 (current freshnews API) but it will be the number in database, 12 is maximum articles per page
   const totalArticles = 100;
   const totalPages = Math.ceil(totalArticles / 12);
 
-  // Show three page numbers before and after the current page number
-  const minPageNumber = Math.max(1, pageIndex - 3);
-  const maxPageNumber = Math.min(totalPages, pageIndex + 4);
+  // PAGINATION - Put three page numbers before and after the current page number
+  const minPageNumber = Math.max(1, pageFromQuery - 3);
+  const maxPageNumber = Math.min(totalPages, pageFromQuery + 4);
 
   const pageNumbers = [];
   for (let i = minPageNumber; i <= maxPageNumber; i++) {
     pageNumbers.push(i);
   }
 
+  // PAGINATION - Use of Pagination in numbers variable to be used in return
+  const numbers = pageNumbers.map((number, index) => (
+    <button
+      key={index}
+      disabled={number === pageFromQuery}
+      onClick={() =>
+        router.push(
+          `/blog/${CleanURL(pageContent.currentScreen)}?page=${number}`
+        )
+      }
+    >
+      {number}
+    </button>
+  ));
+  // ARTICLES - Creation of state to put the result of initializing fetch
+  const [articlesData, setArticlesData] = useState([]);
+
+  // OPTIMIZATION => Put the pagination server side to gain page velocity
   // useEffect(() => {
   //   fetch(`https://freshnews-back.manupuyuelo.com/articles?start=${pageIndex*20}&limit=20`)
   //     .then((response) => response.json())
@@ -90,19 +158,21 @@ function Blog() {
   //     });
   // }, []);
 
+  // ARTICLES - Fetch of all the articles everytime and cut 12 of them depending of pageIndex. Possibility to put in reducer or paginate serverside
   useEffect(() => {
     fetch("https://freshnews-back.manupuyuelo.com/articles")
       .then((response) => response.json())
       .then((data) => {
         const newArticlesData = data.articles.filter(
-          (data, i) => i >= pageIndex * 12 && i < 12 * (pageIndex + 1)
+          (data, i) => i >= (pageFromQuery - 1) * 12 && i < 12 * pageFromQuery
         );
         setArticlesData(newArticlesData);
         setIsEndOfData(newArticlesData.length < 12);
-        setIsBeginningOfData(pageIndex === 0);
+        setIsBeginningOfData(pageFromQuery === 1);
       });
-  }, [pageIndex]);
+  }, [pageFromQuery]);
 
+  // ARTICLES - Use of data from the fetch in a variable articles which contains as much <ArticleCard/> as needed in the return
   const articles = articlesData.map((data, i) => {
     return <ArticleCard key={i} {...data} />;
   });
@@ -110,55 +180,43 @@ function Blog() {
   return (
     <main className={styles.main}>
       <div className={styles.firstSection}>
-        <div className={styles.filterContainer}>
-          {sections.map((section, i) => (
-            <Link
-              key={i}
-              href={`/blog/${section.name
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/\p{Diacritic}/gu, "")}`.replace(/\s/g, "-")}
-            >
-              <a
-                className={`${styles.sectionLink} ${
-                  pageContent.currentScreen === section.name
-                    ? styles.sectionLinkActive
-                    : ""
-                }`}
-              >
-                <span role="img" aria-label={section.name}>
-                  {section.emoji}
-                </span>
-                {section.name}
-              </a>
-            </Link>
-          ))}
-        </div>
+        <div className={styles.filterContainer}>{sections}</div>
         <div className={styles.sectionContainer}>
           <h1>{pageContent.h1Content}</h1>
           <h2>{pageContent.h2Content}</h2>
+          <ol
+            className={styles.breadcrumbs}
+            itemScope
+            itemType="http://schema.org/BreadcrumbList"
+          >
+            {breadcrumbsElements}
+          </ol>
           <div className={styles.articleContainer}>{articles}</div>
           <div className={styles.pagination}>
             <button
               disabled={isBeginningOfData}
               className={`${isBeginningOfData ? styles.noPagination : ""}`}
-              onClick={() => setPageIndex(pageIndex - 1)}
+              onClick={() =>
+                router.push(
+                  `/blog/${CleanURL(pageContent.currentScreen)}?page=${
+                    pageFromQuery - 1
+                  }`
+                )
+              }
             >
               Page précédente
             </button>
-            {pageNumbers.map((number, index) => (
-              <button
-                key={index}
-                disabled={number === pageIndex + 1}
-                onClick={() => setPageIndex(number - 1)}
-              >
-                {number}
-              </button>
-            ))}
+            {numbers}
             <button
               disabled={isEndOfData}
               className={`${isEndOfData ? styles.noPagination : ""}`}
-              onClick={() => setPageIndex(pageIndex + 1)}
+              onClick={() =>
+                router.push(
+                  `/blog/${CleanURL(pageContent.currentScreen)}?page=${
+                    pageFromQuery + 1
+                  }`
+                )
+              }
             >
               Page suivante
             </button>
