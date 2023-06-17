@@ -147,6 +147,16 @@ function Blog({ articles }) {
     </button>
   ));
 
+  // PAGINATION - Check if it is the first page
+  useEffect(() => {
+    setIsBeginningOfData(pageFromQuery === 1);
+  }, [pageFromQuery]);
+
+  // PAGINATION - Check if it is the last page
+  useEffect(() => {
+    setIsEndOfData(pageFromQuery === totalPages);
+  }, [pageFromQuery, totalPages]);
+
   // ARTICLES - Use of data from the fetch in a variable articles which contains as much <ArticleCard/> as needed in the return
   const articlesToShow = articles
     .slice((pageFromQuery - 1) * 12, pageFromQuery * 12)

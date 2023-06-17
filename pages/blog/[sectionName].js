@@ -4,7 +4,9 @@ import Blog from "../../components/Blog";
 export async function getStaticProps({ params }) {
   const sectionName = params.sectionName;
   try {
-    const res = await fetch(`https://back.ourson.app/section/${sectionName}`);
+    const res = await fetch(
+      `https://back.ourson.app/articles/section/${sectionName}`
+    );
     const data = await res.json();
 
     if (data.result) {

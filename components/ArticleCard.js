@@ -3,7 +3,22 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 function ArticleCard(props) {
-  console.log(props.imageURL);
+  let renderTag;
+
+  switch (props.tags[0]) {
+    case "activites":
+      renderTag = "🎈 Activités";
+      break;
+    case "sommeil":
+      renderTag = "💤 Sommeil";
+      break;
+    case "nutrition":
+      renderTag = "🥦 Nutrition";
+      break;
+    default:
+      renderTag = "";
+  }
+
   return (
     <a className={styles.linkToArticle} href={props.slug}>
       <div className={styles.articles}>
@@ -27,7 +42,7 @@ function ArticleCard(props) {
         <h4 className={styles.meta} style={{ textAlign: "right" }}>
           {new Date(props.createdDate).getDate()}-
           {new Date(props.createdDate).getMonth() + 1}-
-          {new Date(props.createdDate).getFullYear()} - {props.tags[0]}
+          {new Date(props.createdDate).getFullYear()} - {renderTag}
         </h4>
       </div>
     </a>
