@@ -3,27 +3,34 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 function ArticleCard(props) {
+  console.log(props.imageURL);
   return (
-    <div className={styles.articles}>
-      <div className={styles.articleHeader}>
-        <a className={styles.linkToArticle} href={props.url}>
-          <h3 className={styles.articleTitle}>{props.title}</h3>
-        </a>
+    <a className={styles.linkToArticle} href={props.slug}>
+      <div className={styles.articles}>
+        <div className={styles.header}>
+          {props.imageURL && (
+            <Image
+              src={props.imageURL}
+              alt={props.content.title}
+              width={600}
+              height={350}
+              objectFit="cover"
+            />
+          )}
+          <div className={styles.articleHeader}>
+            <h3 className={styles.articleTitle}>{props.content.title}</h3>
+
+            <p className={styles.subtitle}>{props.content.subtitle}</p>
+          </div>
+        </div>
+
+        <h4 className={styles.meta} style={{ textAlign: "right" }}>
+          {new Date(props.createdDate).getDate()}-
+          {new Date(props.createdDate).getMonth() + 1}-
+          {new Date(props.createdDate).getFullYear()} - {props.tags[0]}
+        </h4>
       </div>
-      <h4 style={{ textAlign: "right" }}>- {props.author}</h4>
-      <div className={styles.divider}></div>
-      <a className={styles.linkToArticle} href={props.url}>
-        {props.urlToImage && (
-          <Image
-            src={props.urlToImage}
-            alt={props.title}
-            width={600}
-            height={314}
-          />
-        )}
-        <p>{props.description}</p>
-      </a>
-    </div>
+    </a>
   );
 }
 

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import ArticleCard from "../components/ArticleCard";
 import CleanURL from "../modules/cleanURL";
 
-function Blog() {
+function Blog({ articles }) {
   const router = useRouter();
 
   // SECTIONCONTENT -  Function creation to put page content depending of which page we are at
@@ -119,8 +119,8 @@ function Blog() {
   const [isEndOfData, setIsEndOfData] = useState(false);
   const [isBeginningOfData, setIsBeginningOfData] = useState(false);
 
-  // PAGINATION - Suppose totalArticles is 100 (current freshnews API) but it will be the number in database, 12 is maximum articles per page
-  const totalArticles = 100;
+  // PAGINATION - Suppose totalArticles the number in database, 12 is maximum articles per page
+  const totalArticles = articles.length;
   const totalPages = Math.ceil(totalArticles / 12);
 
   // PAGINATION - Put three page numbers before and after the current page number
@@ -146,36 +146,13 @@ function Blog() {
       {number}
     </button>
   ));
-  // ARTICLES - Creation of state to put the result of initializing fetch
-  const [articlesData, setArticlesData] = useState([]);
-
-  // OPTIMIZATION => Put the pagination server side to gain page velocity
-  // useEffect(() => {
-  //   fetch(`https://freshnews-back.manupuyuelo.com/articles?start=${pageIndex*20}&limit=20`)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setArticlesData(data.articles.filter((data, i) => i > 0));
-  //     });
-  // }, []);
-
-  // ARTICLES - Fetch of all the articles everytime and cut 12 of them depending of pageIndex. Possibility to put in reducer or paginate serverside
-  useEffect(() => {
-    fetch("https://freshnews-back.manupuyuelo.com/articles")
-      .then((response) => response.json())
-      .then((data) => {
-        const newArticlesData = data.articles.filter(
-          (data, i) => i >= (pageFromQuery - 1) * 12 && i < 12 * pageFromQuery
-        );
-        setArticlesData(newArticlesData);
-        setIsEndOfData(newArticlesData.length < 12);
-        setIsBeginningOfData(pageFromQuery === 1);
-      });
-  }, [pageFromQuery]);
 
   // ARTICLES - Use of data from the fetch in a variable articles which contains as much <ArticleCard/> as needed in the return
-  const articles = articlesData.map((data, i) => {
-    return <ArticleCard key={i} {...data} />;
-  });
+  const articlesToShow = articles
+    .slice((pageFromQuery - 1) * 12, pageFromQuery * 12)
+    .map((data, i) => {
+      return <ArticleCard key={i} {...data} />;
+    });
 
   return (
     <main className={styles.main}>
@@ -191,7 +168,7 @@ function Blog() {
           >
             {breadcrumbsElements}
           </ol>
-          <div className={styles.articleContainer}>{articles}</div>
+          <div className={styles.articleContainer}>{articlesToShow}</div>
           <div className={styles.pagination}>
             <button
               disabled={isBeginningOfData}
