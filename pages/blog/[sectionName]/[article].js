@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import Article from "../components/Article";
+import Header from "../../../components/Header";
+import Article from "../../../components/Article";
 
 function ArticlePage() {
   return (
