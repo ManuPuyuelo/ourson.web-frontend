@@ -44,6 +44,35 @@
   display: none;
 }
 
+.sectionLinkShort::before {
+  content: "\25BE";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.sectionLinkShort::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #333;
+  border-right: 2px solid #333;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.sectionLinkShort:hover,
+.sectionLinkShort:focus {
+  background-color: #f0f0f0;
+}
+
+.sectionLinkShort:active {
+  background-color: #e0e0e0;
+}
+
 .sectionLinkActive {
   background-color: #ffff;
   color: #333;
@@ -127,5 +156,9 @@
   .sectionContainer {
     margin-left: 2vw;
     margin-right: 2vw;
+  }
+  .filterContainer {
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
 }
