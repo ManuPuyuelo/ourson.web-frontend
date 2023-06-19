@@ -11,13 +11,10 @@ export default function Article({ article }) {
     <article>
       <br /> <br /> <br /> <br /> <br />
       <br /> <br /> <br /> <br /> <br />
-      <br /> <br /> <br /> <br /> <br />
       <h1>
         🚧 Cette page est en travaux et devrait être disponible dès ce soir
         (19/06/2023)
       </h1>
-      <br /> <br /> <br /> <br /> <br />
-      <br /> <br /> <br /> <br /> <br />
       <br /> <br /> <br /> <br /> <br />
       <h3>{article.content.title}</h3>
       <img src={article.imageURL} alt={article.content.title} />
