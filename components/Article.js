@@ -117,7 +117,7 @@ export default function Article({ article }) {
               Auteur : {article.author}
             </h4>
             <h4 className={styles.meta} style={{ textAlign: "right" }}>
-              Date de publication :{new Date(article.createdDate).getDate()}-
+              Date de publication : {new Date(article.createdDate).getDate()}-
               {new Date(article.createdDate).getMonth() + 1}-
               {new Date(article.createdDate).getFullYear()}
             </h4>
