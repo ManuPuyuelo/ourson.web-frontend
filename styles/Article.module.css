@@ -96,8 +96,9 @@
   border-radius: 1em;
 }
 
-.markdownContent h2 {
+.markdownContent h3 {
   font-size: 1.4em;
+  margin-top: 10px;
 }
 
 .markdownContent p,
@@ -136,7 +137,7 @@
     font-size: 1em;
   }
 
-  .markdownContent h2 {
+  .markdownContent h3 {
     font-size: 1.4em;
   }
 
