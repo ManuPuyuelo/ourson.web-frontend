@@ -15,8 +15,22 @@
   background-position: center;
 }
 
+.breadcrumbsContainer {
+  padding-top: 2vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
+}
+.breadcrumbs {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 5px;
+  list-style: none;
+}
+
 .sumUpContainer {
-  padding-top: 4vw;
   padding-bottom: 2vw;
   padding-left: 8vw;
   padding-right: 8vw;
@@ -48,6 +62,20 @@
   overflow: hidden;
 }
 
+.breadcrumbs a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #ffda57;
+}
+
+.breadcrumbs .breadcrumbArrow {
+  color: #333;
+}
+
 .title {
   font-size: 2em;
 }
@@ -73,15 +101,17 @@
   font-size: 1.4em;
 }
 
-.markdownContent p {
+.markdownContent p,
+.longSummary {
   line-height: 1.06;
   font-size: 1em;
+  text-align: justify;
 }
 
 @media screen and (max-width: 1000px) {
   .sumUpContainer {
     flex-direction: column;
-    padding-top: 8vw;
+    padding-top: 4vw;
     padding-bottom: 4vw;
   }
   .leftSide,
@@ -101,12 +131,10 @@
 
 @media screen and (max-width: 700px) {
   .title {
-    line-height: 1.05;
     font-size: 1.5em;
   }
 
   .subtitle {
-    line-height: 1.06;
     font-size: 1em;
   }
 
@@ -127,6 +155,10 @@
   }
   .sumUpContainer {
     padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+  .breadcrumbsContainer {
     padding-left: 2vw;
     padding-right: 2vw;
   }

@@ -58,17 +58,11 @@ function Blog({ articles }) {
   const pageContent = getPageContent();
 
   // BREADCRUMBS - Create a path depending of current URL
-  const breadcrumbs = [];
-  const pathArray = router.asPath
-    .split("?")[0]
-    .split("/")
-    .filter((p) => p);
+  const breadcrumbs = [{ name: "blog", path: "/blog" }];
+  const sectionName = router.query.sectionName || "toutes-les-sections";
 
-  pathArray.reduce((prev, curr, index) => {
-    const path = `${prev}/${curr}`;
-    breadcrumbs.push({ name: curr, path: path });
-    return path;
-  }, "");
+  // add the section name to the breadcrumbs
+  breadcrumbs.push({ name: sectionName, path: `/blog/${sectionName}` });
 
   const breadcrumbsElements = breadcrumbs.map((breadcrumb, i) => (
     <React.Fragment key={i}>
@@ -81,8 +75,8 @@ function Blog({ articles }) {
         <Link itemProp="item" href={breadcrumb.path}>
           <a itemProp="name">{breadcrumb.name}</a>
         </Link>
+        <meta itemProp="position" content={i + 1} />
       </li>
-      <meta itemProp="position" content={i + 1} />
       {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
     </React.Fragment>
   ));
