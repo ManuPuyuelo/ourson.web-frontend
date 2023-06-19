@@ -28,11 +28,11 @@ export default function Article({ article }) {
       <div className={styles.firstSection}>
         <div className={styles.sumUpContainer}>
           <div className={styles.leftSide}>
-            <h1>
+            <h1 className={styles.title}>
               <mark className={styles.mark}>{article.content.title}</mark>
             </h1>
             <br />
-            <h2>{article.content.summary}</h2>
+            <h2 className={styles.subtitle}>{article.content.summary}</h2>
           </div>
           <div className={styles.rightSide}>
             <Image

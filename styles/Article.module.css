@@ -16,7 +16,8 @@
 }
 
 .sumUpContainer {
-  padding-top: 2vw;
+  padding-top: 4vw;
+  padding-bottom: 2vw;
   padding-left: 8vw;
   padding-right: 8vw;
   width: 100%;
@@ -54,9 +55,41 @@
 
 .sectionContainer {
   padding: 4vw;
-  margin-top: 2vw;
   margin-left: 8vw;
   margin-right: 8vw;
   background-color: white;
   border-radius: 1em;
+}
+
+@media screen and (max-width: 1000px) {
+  .sumUpContainer {
+    flex-direction: column;
+    padding-top: 8vw;
+    padding-bottom: 4vw;
+  }
+  .leftSide,
+  .rightSide {
+    width: 100%;
+  }
+  .rightSide {
+    max-height: 200px;
+    min-height: 150px;
+  }
+  .leftSide {
+    text-align: left;
+    max-width: 100%;
+    padding-bottom: 2vw;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .title {
+    line-height: 1.05;
+    font-size: 1.5em;
+  }
+
+  .subtitle {
+    line-height: 1.06;
+    font-size: 0.9em;
+  }
 }
