@@ -18,7 +18,11 @@ export default function Article({ article }) {
     return (
       <>
         <br />
-        <div key={i} dangerouslySetInnerHTML={markup} />
+        <div
+          key={i}
+          className={styles.markdownContent}
+          dangerouslySetInnerHTML={markup}
+        />
       </>
     );
   });
@@ -45,7 +49,7 @@ export default function Article({ article }) {
         </div>
         <div className={styles.sectionContainer}>
           <article>
-            <p>{article.content.longSummary}</p>
+            <p className={styles.longSummary}>{article.content.longSummary}</p>
             {bodyContent}
             <br />
             <p>Auteur : {article.author}</p>

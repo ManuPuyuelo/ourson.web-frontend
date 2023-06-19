@@ -48,9 +48,16 @@
   overflow: hidden;
 }
 
+.title {
+  font-size: 2em;
+}
 .mark {
   background-color: white;
   color: black;
+}
+
+.subtitle {
+  font-size: 1.2em;
 }
 
 .sectionContainer {
@@ -59,6 +66,16 @@
   margin-right: 8vw;
   background-color: white;
   border-radius: 1em;
+}
+
+.markdownContent h2 {
+  line-height: 1.06;
+  font-size: 1.4em;
+}
+
+.markdownContent p {
+  line-height: 1.06;
+  font-size: 1em;
 }
 
 @media screen and (max-width: 1000px) {
@@ -90,6 +107,38 @@
 
   .subtitle {
     line-height: 1.06;
+    font-size: 1em;
+  }
+
+  .markdownContent h2 {
+    font-size: 1.4em;
+  }
+
+  .markdownContent p,
+  .longSummary {
     font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .sectionContainer {
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
+  .sumUpContainer {
+    padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+@media screen and (max-width: 400px) {
+  .rightSide {
+    border-radius: 150px;
+    /* border-bottom-left-radius: 150px;
+    border-top-right-radius: 150px; */
+    margin: 0;
+    max-height: 150px;
+    min-height: 100px;
+    overflow: hidden;
   }
 }
