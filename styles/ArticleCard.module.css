@@ -1,10 +1,10 @@
 .articles {
   width: 400px;
   height: 400px;
-  margin: 10px;
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid rgb(233, 190, 89);
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  height: 82 px;
+  height: 82px;
 }
 
 .articleTitle {
@@ -32,13 +32,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1.05;
+  font-size: 1.2em;
 }
 
 .subtitle {
   margin: 0;
   margin-top: 5px;
   padding: 0;
-  font-size: 0.9em;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -46,6 +46,7 @@
   text-overflow: ellipsis;
   line-height: 1.06;
   text-align: justify;
+  font-size: 0.9em;
 }
 
 .divider {
@@ -56,4 +57,25 @@
 
 .meta {
   padding: 10px;
+}
+@media screen and (max-width: 520px) {
+  .articles {
+    width: 90vw;
+    height: 90vw;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .articleHeader {
+    height: 65px;
+  }
+  .articleTitle {
+    line-height: 1.05;
+    font-size: 1em;
+  }
+
+  .subtitle {
+    line-height: 1.06;
+    font-size: 0.8em;
+  }
 }

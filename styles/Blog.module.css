@@ -27,7 +27,9 @@
   gap: 20px;
 }
 
-.sectionLink {
+.sectionLinkLong,
+.sectionLinkShort {
+  font-size: 1em;
   text-decoration: none;
   font-weight: bold;
   color: #333;
@@ -35,6 +37,11 @@
   padding: 10px 20px;
   border-radius: 10px;
   transition: all 0.3s ease;
+}
+
+.sectionLinkShort {
+  padding: 14px 20px;
+  display: none;
 }
 
 .sectionLinkActive {
@@ -87,7 +94,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
 }
 
 .pagination {
@@ -101,4 +108,24 @@
 
 .noPagination {
   display: none;
+}
+@media screen and (max-width: 805px) {
+  .sectionLinkLong {
+    display: none;
+  }
+
+  .sectionLinkShort {
+    display: block;
+  }
+
+  .sectionContainer {
+    margin-top: 4vw;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .sectionContainer {
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
 }

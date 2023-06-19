@@ -99,7 +99,7 @@ function Blog({ articles }) {
   const sections = sectionsList.map((section, i) => (
     <Link key={i} href={`/blog/${CleanURL(section.name)}`}>
       <a
-        className={`${styles.sectionLink} ${
+        className={`${styles.sectionLinkLong}  ${
           pageContent.currentScreen === section.name
             ? styles.sectionLinkActive
             : ""
@@ -112,6 +112,34 @@ function Blog({ articles }) {
       </a>
     </Link>
   ));
+
+  const dropdownOptions = sectionsList.map((section, i) => (
+    <option
+      key={i}
+      value={section.name}
+      selected={pageContent.currentScreen === section.name}
+    >
+      {section.emoji} {section.name}
+    </option>
+  ));
+
+  const handleSectionChange = (event) => {
+    const selectedSection = event.target.value;
+    const sectionURL = `/blog/${CleanURL(selectedSection)}`;
+    router.push(sectionURL);
+  };
+
+  const sectionsLinks = (
+    <div className={styles.filterContainer}>
+      {sections}
+      <select
+        onChange={handleSectionChange}
+        className={styles.sectionLinkShort}
+      >
+        {dropdownOptions}
+      </select>
+    </div>
+  );
 
   // PAGINATION -  Get the page number from the URL
   const pageFromQuery = parseInt(router.query.page, 10) || 1;
@@ -167,7 +195,7 @@ function Blog({ articles }) {
   return (
     <main className={styles.main}>
       <div className={styles.firstSection}>
-        <div className={styles.filterContainer}>{sections}</div>
+        {sectionsLinks}
         <div className={styles.sectionContainer}>
           <h1>{pageContent.h1Content}</h1>
           <h2>{pageContent.h2Content}</h2>
