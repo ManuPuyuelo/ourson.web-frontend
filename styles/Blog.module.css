@@ -103,7 +103,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 25px;
+  gap: 20px;
 }
 
 .pagination {
@@ -118,6 +118,18 @@
 .noPagination {
   display: none;
 }
+
+@media screen and (max-width: 1665px) {
+  .sectionContainer {
+    padding: 4vw;
+    margin-top: 2vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    background-color: white;
+    border-radius: 1em;
+  }
+}
+
 @media screen and (max-width: 805px) {
   .sectionLinkLong {
     display: none;
