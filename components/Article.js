@@ -64,6 +64,21 @@ export default function Article({ article }) {
     );
   });
 
+  let renderTag;
+  switch (article.tags[0]) {
+    case "activites":
+      renderTag = "🎈 Activités";
+      break;
+    case "sommeil":
+      renderTag = "💤 Sommeil";
+      break;
+    case "nutrition":
+      renderTag = "🥦 Nutrition";
+      break;
+    default:
+      renderTag = "";
+  }
+
   return (
     <main className={styles.main}>
       <div className={styles.firstSection}>
@@ -98,9 +113,17 @@ export default function Article({ article }) {
             <p className={styles.longSummary}>{article.content.longSummary}</p>
             {bodyContent}
             <br />
-            <p>Auteur : {article.author}</p>
-            <p>Date : {article.createdDate}</p>
-            <p>Section : {article.tags[0]}</p>
+            <h4 className={styles.meta} style={{ textAlign: "right" }}>
+              Auteur : {article.author}
+            </h4>
+            <h4 className={styles.meta} style={{ textAlign: "right" }}>
+              Date de publication :{new Date(article.createdDate).getDate()}-
+              {new Date(article.createdDate).getMonth() + 1}-
+              {new Date(article.createdDate).getFullYear()}
+            </h4>
+            <h4 className={styles.meta} style={{ textAlign: "right" }}>
+              Section : {renderTag}
+            </h4>
           </article>
         </div>
       </div>
