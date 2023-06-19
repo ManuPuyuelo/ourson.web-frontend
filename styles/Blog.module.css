@@ -125,6 +125,11 @@
 
   .sectionLinkShort {
     display: block;
+    margin-top: 4vw;
+    margin-bottom: 2vw;
+  }
+  .sectionLinkShortOption {
+    padding: 14px 20px;
   }
 
   .sectionContainer {

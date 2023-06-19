@@ -111,6 +111,7 @@ function Blog({ articles }) {
     <option
       key={i}
       value={section.name}
+      className={styles.sectionLinkShortOption}
       selected={pageContent.currentScreen === section.name}
     >
       {section.emoji} {section.name}
