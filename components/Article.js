@@ -1,29 +1,59 @@
 import styles from "../styles/Article.module.css";
-
 import { useRouter } from "next/router";
+import Image from "next/image";
+import { marked } from "marked";
+import { sanitize } from "isomorphic-dompurify";
 
 export default function Article({ article }) {
-  const bodyContent = article.content.body.map((data, i) => (
-    <p key={i}>{data.content}</p>
-  ));
+  marked.use({
+    mangle: false,
+    headerIds: false,
+  });
+
+  const bodyContent = article.content.body.map((data, i) => {
+    const rawMarkup = marked(data.content);
+    const cleanMarkup = sanitize(rawMarkup);
+    const markup = { __html: cleanMarkup };
+
+    return (
+      <>
+        <br />
+        <div key={i} dangerouslySetInnerHTML={markup} />
+      </>
+    );
+  });
 
   return (
-    <article>
-      <br /> <br /> <br /> <br /> <br />
-      <br /> <br /> <br /> <br /> <br />
-      <h1>
-        🚧 Cette page est en travaux et devrait être disponible dès ce soir
-        (19/06/2023)
-      </h1>
-      <br /> <br /> <br /> <br /> <br />
-      <h3>{article.content.title}</h3>
-      <img src={article.imageURL} alt={article.content.title} />
-      <p>{article.content.summary}</p>
-      <p>{article.content.longSummary}</p>
-      {bodyContent}
-      <p>Auteur : {article.author}</p>
-      <p>Date : {article.createdDate}</p>
-      <p>Section : {article.tags[0]}</p>
-    </article>
+    <main className={styles.main}>
+      <div className={styles.firstSection}>
+        <div className={styles.sumUpContainer}>
+          <div className={styles.leftSide}>
+            <h1>
+              <mark className={styles.mark}>{article.content.title}</mark>
+            </h1>
+            <br />
+            <h2>{article.content.summary}</h2>
+          </div>
+          <div className={styles.rightSide}>
+            <Image
+              src={article.imageURL}
+              alt={article.content.title}
+              layout="fill"
+              objectFit="cover"
+            />
+          </div>
+        </div>
+        <div className={styles.sectionContainer}>
+          <article>
+            <p>{article.content.longSummary}</p>
+            {bodyContent}
+            <br />
+            <p>Auteur : {article.author}</p>
+            <p>Date : {article.createdDate}</p>
+            <p>Section : {article.tags[0]}</p>
+          </article>
+        </div>
+      </div>
+    </main>
   );
 }
