@@ -13,6 +13,14 @@ export default function Article({ article }) {
   const router = useRouter();
 
   // BREADCRUMBS - Create a path depending of current URL
+  const checkOverflow = (textElement) => {
+    if (textElement.scrollWidth > textElement.offsetWidth) {
+      const text = textElement.innerText;
+      const lastIndex = text.lastIndexOf("-");
+      textElement.innerText = text.substring(0, lastIndex);
+    }
+  };
+
   const breadcrumbs = [];
   const pathArray = router.asPath
     .split("?")[0]
@@ -41,6 +49,23 @@ export default function Article({ article }) {
       {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
     </React.Fragment>
   ));
+
+  // const breadcrumbsElements = breadcrumbs.map((breadcrumb, i) => (
+  //   <React.Fragment key={i}>
+  //     <li
+  //       itemProp="itemListElement"
+  //       itemScope=""
+  //       itemType="http://schema.org/ListItem"
+  //       className="breadcrumbs"
+  //     >
+  //       <Link itemProp="item" href={breadcrumb.path}>
+  //         <a itemProp="name" ref={checkOverflow}>{breadcrumb.name}</a> {/* Ici on applique notre fonction */}
+  //       </Link>
+  //     </li>
+  //     <meta itemProp="position" content={i + 1} />
+  //     {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
+  //   </React.Fragment>
+  // ));
 
   marked.use({
     mangle: false,
@@ -99,7 +124,7 @@ export default function Article({ article }) {
             <br />
             <h2 className={styles.subtitle}>{article.content.summary}</h2>
           </div>
-          <div className={styles.rightSide}>
+          <div className={styles.rightSideLong}>
             <Image
               src={article.imageURL}
               alt={article.content.title}
@@ -107,6 +132,14 @@ export default function Article({ article }) {
               objectFit="cover"
             />
           </div>
+        </div>
+        <div className={styles.rightSideShort}>
+          <Image
+            src={article.imageURL}
+            alt={article.content.title}
+            layout="fill"
+            objectFit="cover"
+          />
         </div>
         <div className={styles.sectionContainer}>
           <article>
