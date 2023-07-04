@@ -106,14 +106,12 @@ function Blog({ articles }) {
   ));
 
   const dropdownOptions = sectionsList.map((section, i) => (
-    <option
-      key={i}
-      value={section.name}
-      selected={pageContent.currentScreen === section.name}
-    >
+    <option key={i} value={section.name}>
       {section.emoji} {section.name}
     </option>
   ));
+
+  const selectedSection = pageContent.currentScreen; // Valeur de la section sélectionnée
 
   const handleSectionChange = (event) => {
     const selectedSection = event.target.value;
@@ -127,6 +125,7 @@ function Blog({ articles }) {
       <select
         onChange={handleSectionChange}
         className={styles.sectionLinkShort}
+        defaultValue={selectedSection} // Utilisation de `value` pour définir la section sélectionnée
       >
         {dropdownOptions}
       </select>
