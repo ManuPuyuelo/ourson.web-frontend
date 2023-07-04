@@ -27,7 +27,7 @@ function Header() {
   const currentScreen = getTitle();
 
   return (
-    <div className={styles.headercontainer}>
+    <header className={styles.headercontainer}>
       <div className={styles.HeaderLogo}>
         <nav>
           <a href="/" className={styles.brandNameLong}>
@@ -78,7 +78,7 @@ function Header() {
           </div>
         </nav>
       </div>
-    </div>
+    </header>
   );
 }
 

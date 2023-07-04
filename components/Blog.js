@@ -21,34 +21,29 @@ function Blog({ articles }) {
     switch (sectionName) {
       case "toutes-les-sections":
         content.currentScreen = "Toutes les sections";
-        content.h1Content = "Bienvenue sur toutes les sections";
+        content.h1Content = "Bienvenue sur le blog Ourson";
         content.h2Content =
           "Découvrez les derniers articles sur toutes les thématiques";
-        content.imgContent = "urlImageToutesLesSections"; // Mettez ici l'url de votre image pour la section "Toutes les sections"
         break;
       case "nutrition":
         content.currentScreen = "Nutrition";
         content.h1Content = "Bienvenue sur la section Nutrition";
         content.h2Content = "Découvrez les derniers articles sur la nutrition";
-        content.imgContent = "urlImageNutrition"; // Mettez ici l'url de votre image pour la section "Nutrition"
         break;
       case "sommeil":
         content.currentScreen = "Sommeil";
         content.h1Content = "Bienvenue sur la section Sommeil";
         content.h2Content = "Découvrez les derniers articles sur le sommeil";
-        content.imgContent = "urlImageSommeil"; // Mettez ici l'url de votre image pour la section "Sommeil"
         break;
       case "activites":
         content.currentScreen = "Activités";
         content.h1Content = "Bienvenue sur la section Activités";
         content.h2Content = "Découvrez les derniers articles sur les activités";
-        content.imgContent = "urlImageActivites"; // Mettez ici l'url de votre image pour la section "Activités"
         break;
       default:
         content.currentScreen = "";
         content.h1Content = "";
         content.h2Content = "";
-        content.imgContent = "";
     }
 
     return content;
@@ -65,20 +60,23 @@ function Blog({ articles }) {
   breadcrumbs.push({ name: sectionName, path: `/blog/${sectionName}` });
 
   const breadcrumbsElements = breadcrumbs.map((breadcrumb, i) => (
-    <React.Fragment key={i}>
-      <li
-        itemProp="itemListElement"
-        itemScope=""
-        itemType="http://schema.org/ListItem"
-        className="breadcrumbs"
-      >
-        <Link itemProp="item" href={breadcrumb.path}>
-          <a itemProp="name">{breadcrumb.name}</a>
-        </Link>
-        <meta itemProp="position" content={i + 1} />
-      </li>
-      {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
-    </React.Fragment>
+    <li
+      key={i}
+      itemProp="itemListElement"
+      itemScope
+      itemType="http://schema.org/ListItem"
+      className="breadcrumbs"
+    >
+      <Link href={breadcrumb.path}>
+        <a itemProp="item">
+          <span itemProp="name">{breadcrumb.name}</span>
+        </a>
+      </Link>
+      <meta itemProp="position" content={i + 1} />
+      {i < breadcrumbs.length - 1 && (
+        <span className="breadcrumbArrow"> &gt;</span>
+      )}
+    </li>
   ));
 
   // SECTIONS - Creation of a variable to create 4sections/url depending of articles sections

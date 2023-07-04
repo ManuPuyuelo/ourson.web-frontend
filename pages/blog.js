@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Blog from "../components/Blog";
 
 export async function getStaticProps() {
@@ -36,7 +35,6 @@ function BlogPage({ articles }) {
   return (
     <>
       <Blog articles={articles} />
-      <Header />
     </>
   );
 }

@@ -1,22 +1,18 @@
 import "../styles/globals.css";
 import Head from "next/head";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
+import { useEffect } from "react";
+import TagManager from "react-gtm-module";
 
 function App({ Component, pageProps }) {
+  useEffect(() => {
+    TagManager.initialize({ gtmId: "GTM-M4VH94M" });
+  }, []);
   return (
     <>
       <Head>
-        {/* Code du Google Tag Manager à la balise <head> */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-M4VH94M');
-            `,
-          }}
-        />
         <meta
           name="description"
           content="Ourson est la 1ère app intelligente qui vous donne un coup de patte concernant l’éveil de votre enfant sur 3 aspects : nutrition, suivi du sommeil et activités."
@@ -55,18 +51,10 @@ function App({ Component, pageProps }) {
           }}
         />
       </Head>
-      {/* Code du Google Tag Manager à la balise <body> */}
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `
-            <!-- Google Tag Manager (noscript) -->
-            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M4VH94M"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-            <!-- End Google Tag Manager (noscript) -->
-          `,
-        }}
-      />
+
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

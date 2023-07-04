@@ -12,8 +12,8 @@
 
 /*First Section with background image and button*/
 .firstSection {
-  height: 90vh;
-  margin-top: 10vh;
+  height: 100vh;
+  padding-top: 10vh;
   width: 100%;
   max-width: 100%;
   background-color: #ffda57;
@@ -107,6 +107,7 @@
   line-height: 1.6em;
   text-align: justify;
   color: black;
+  margin-top: 1em;
 }
 
 .projectImage0 {

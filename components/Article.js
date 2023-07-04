@@ -34,38 +34,24 @@ export default function Article({ article }) {
   }, "");
 
   const breadcrumbsElements = breadcrumbs.map((breadcrumb, i) => (
-    <React.Fragment key={i}>
-      <li
-        itemProp="itemListElement"
-        itemScope=""
-        itemType="http://schema.org/ListItem"
-        className="breadcrumbs"
-      >
-        <Link itemProp="item" href={breadcrumb.path}>
-          <a itemProp="name">{breadcrumb.name}</a>
-        </Link>
-      </li>
+    <li
+      key={i}
+      itemProp="itemListElement"
+      itemScope
+      itemType="http://schema.org/ListItem"
+      className="breadcrumbs"
+    >
+      <Link href={breadcrumb.path}>
+        <a itemProp="item">
+          <span itemProp="name">{breadcrumb.name}</span>
+        </a>
+      </Link>
       <meta itemProp="position" content={i + 1} />
-      {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
-    </React.Fragment>
+      {i < breadcrumbs.length - 1 && (
+        <span className="breadcrumbArrow"> &gt;</span>
+      )}
+    </li>
   ));
-
-  // const breadcrumbsElements = breadcrumbs.map((breadcrumb, i) => (
-  //   <React.Fragment key={i}>
-  //     <li
-  //       itemProp="itemListElement"
-  //       itemScope=""
-  //       itemType="http://schema.org/ListItem"
-  //       className="breadcrumbs"
-  //     >
-  //       <Link itemProp="item" href={breadcrumb.path}>
-  //         <a itemProp="name" ref={checkOverflow}>{breadcrumb.name}</a> {/* Ici on applique notre fonction */}
-  //       </Link>
-  //     </li>
-  //     <meta itemProp="position" content={i + 1} />
-  //     {i < breadcrumbs.length - 1 && <li className="breadcrumbArrow">&gt;</li>}
-  //   </React.Fragment>
-  // ));
 
   marked.use({
     mangle: false,
