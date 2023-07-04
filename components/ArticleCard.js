@@ -22,7 +22,7 @@ function ArticleCard(props) {
   return (
     <a
       className={styles.linkToArticle}
-      href={`https://www.ourson.app/blog/${props.tags[0]}/${props.slug}`}
+      href={`/blog/${props.tags[0]}/${props.slug}`}
     >
       <div className={styles.articles}>
         <div className={styles.header}>

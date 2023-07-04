@@ -38,9 +38,20 @@ export async function getStaticProps({ params }) {
     const data = await res.json();
 
     if (data.result) {
+      const article = data.article;
+      const meta = {
+        title: `Le Blog d'Ourson, ${article.content.title}`,
+        description: `${article.content.summary}`,
+        keywords: params.articleSlug.split("-").join(", "),
+        ogTitle: `Le Blog d'Ourson, ${article.content.title}`,
+        ogDescription: `${article.content.summary}`,
+        ogUrl: `https://www.ourson.app/blog/${params.sectionName}/${params.articleSlug}`,
+      };
+
       return {
         props: {
-          article: data.article,
+          article,
+          meta,
         },
       };
     } else {
@@ -48,6 +59,7 @@ export async function getStaticProps({ params }) {
       return {
         props: {
           article: null,
+          meta: {},
         },
       };
     }
@@ -56,6 +68,7 @@ export async function getStaticProps({ params }) {
     return {
       props: {
         article: null,
+        meta: {},
       },
     };
   }
