@@ -17,17 +17,28 @@
 
 .breadcrumbsContainer {
   padding-top: 2vw;
+  padding-bottom: 2vw;
   padding-left: 8vw;
   padding-right: 8vw;
 }
 .breadcrumbs {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  padding: 0;
+  margin: 0;
   gap: 10px;
-  margin-bottom: 20px;
-  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   list-style: none;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.breadcrumbs .breadcrumbArrow {
+  color: #333;
 }
 
 .sumUpContainer {
@@ -68,18 +79,6 @@
   display: none;
 }
 
-.breadcrumbs a {
-  text-decoration: none;
-  color: #333;
-  transition: all 0.2s ease;
-  /* white-space: nowrap;  
-overflow: hidden; */
-}
-
-.breadcrumbs .breadcrumbArrow {
-  color: #333;
-}
-
 .title {
   font-size: 2em;
 }
@@ -114,6 +113,10 @@ overflow: hidden; */
 }
 
 @media screen and (max-width: 1000px) {
+  .breadcrumbsContainer {
+    padding-top: 4vw;
+  }
+
   .sumUpContainer {
     flex-direction: column;
     padding-top: 4vw;
@@ -167,6 +170,9 @@ overflow: hidden; */
 }
 
 @media screen and (max-width: 520px) {
+  .breadcrumbsContainer {
+    padding-top: 6vw;
+  }
   .sectionContainer {
     margin-left: 4vw;
     margin-right: 4vw;

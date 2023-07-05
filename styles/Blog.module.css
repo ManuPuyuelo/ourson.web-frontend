@@ -71,14 +71,21 @@
   background-color: white;
   border-radius: 1em;
 }
+.sectionContainer h1 {
+  margin-bottom: 10px;
+}
+
+.sectionContainer h2 {
+  margin-bottom: 40px;
+}
 
 .breadcrumbs {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
+  padding: 0;
+  margin: 0;
   gap: 10px;
-  margin-bottom: 20px;
-  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   list-style: none;
 }
 
@@ -97,7 +104,7 @@
 }
 
 .articleContainer {
-  margin-top: 8vw;
+  margin-top: 2vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -112,7 +119,23 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
+}
+
+.pagination button {
+  border: 0;
+
+  font-weight: bold;
+  font-size: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icons {
+  height: 25px;
+  width: 25px;
 }
 
 .noPagination {
@@ -120,17 +143,24 @@
 }
 
 @media screen and (max-width: 1665px) {
+  .titlesContainer {
+    padding: 2vw;
+  }
+
   .sectionContainer {
-    padding: 4vw;
+    padding: 2vw;
     margin-top: 2vw;
-    margin-left: 4vw;
-    margin-right: 4vw;
+    margin-left: 8vw;
+    margin-right: 8vw;
     background-color: white;
     border-radius: 1em;
   }
 }
 
 @media screen and (max-width: 805px) {
+  .articleContainer {
+    margin-top: 4vw;
+  }
   .sectionLinkLong {
     display: none;
   }
@@ -143,6 +173,9 @@
 
   .sectionContainer {
     margin-top: 4vw;
+    padding-top: 8vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
   }
 }
 
@@ -150,6 +183,11 @@
   .sectionContainer {
     margin-left: 4vw;
     margin-right: 4vw;
+  }
+
+  .titlesContainer {
+    padding-left: 4vw;
+    padding-right: 4vw;
   }
   .filterContainer {
     padding-left: 4vw;

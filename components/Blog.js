@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import ArticleCard from "../components/ArticleCard";
 import CleanURL from "../modules/cleanURL";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Blog({ articles }) {
   const router = useRouter();
@@ -65,7 +67,7 @@ function Blog({ articles }) {
       itemProp="itemListElement"
       itemScope
       itemType="http://schema.org/ListItem"
-      className="breadcrumbs"
+      className={styles.breadcrumbs}
     >
       <Link href={breadcrumb.path}>
         <a itemProp="item">
@@ -74,7 +76,7 @@ function Blog({ articles }) {
       </Link>
       <meta itemProp="position" content={i + 1} />
       {i < breadcrumbs.length - 1 && (
-        <span className="breadcrumbArrow"> &gt;</span>
+        <span className={styles.breadcrumbArrow}>&gt;</span>
       )}
     </li>
   ));
@@ -188,15 +190,17 @@ function Blog({ articles }) {
       <div className={styles.firstSection}>
         {sectionsLinks}
         <div className={styles.sectionContainer}>
-          <h1>{pageContent.h1Content}</h1>
-          <h2>{pageContent.h2Content}</h2>
-          <ol
-            className={styles.breadcrumbs}
-            itemScope
-            itemType="http://schema.org/BreadcrumbList"
-          >
-            {breadcrumbsElements}
-          </ol>
+          <div className={styles.titlesContainer}>
+            <h1>{pageContent.h1Content}</h1>
+            <h2>{pageContent.h2Content}</h2>
+            <ol
+              className={styles.breadcrumbs}
+              itemScope
+              itemType="http://schema.org/BreadcrumbList"
+            >
+              {breadcrumbsElements}
+            </ol>
+          </div>
           <div className={styles.articleContainer}>{articlesToShow}</div>
           <div className={styles.pagination}>
             <button
@@ -210,7 +214,12 @@ function Blog({ articles }) {
                 )
               }
             >
-              Page précédente
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                className={`${
+                  isBeginningOfData ? styles.noPagination : styles.icons
+                }`}
+              />
             </button>
             {numbers}
             <button
@@ -224,7 +233,12 @@ function Blog({ articles }) {
                 )
               }
             >
-              Page suivante
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                className={`${
+                  isEndOfData ? styles.noPagination : styles.icons
+                }`}
+              />
             </button>
           </div>
         </div>

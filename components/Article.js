@@ -13,14 +13,6 @@ export default function Article({ article }) {
   const router = useRouter();
 
   // BREADCRUMBS - Create a path depending of current URL
-  const checkOverflow = (textElement) => {
-    if (textElement.scrollWidth > textElement.offsetWidth) {
-      const text = textElement.innerText;
-      const lastIndex = text.lastIndexOf("-");
-      textElement.innerText = text.substring(0, lastIndex);
-    }
-  };
-
   const breadcrumbs = [];
   const pathArray = router.asPath
     .split("?")[0]
@@ -39,7 +31,7 @@ export default function Article({ article }) {
       itemProp="itemListElement"
       itemScope
       itemType="http://schema.org/ListItem"
-      className="breadcrumbs"
+      className={styles.breadcrumbs}
     >
       <Link href={breadcrumb.path}>
         <a itemProp="item">
@@ -48,7 +40,7 @@ export default function Article({ article }) {
       </Link>
       <meta itemProp="position" content={i + 1} />
       {i < breadcrumbs.length - 1 && (
-        <span className="breadcrumbArrow"> &gt;</span>
+        <span className={styles.breadcrumbArrow}>&gt;</span>
       )}
     </li>
   ));
@@ -64,14 +56,13 @@ export default function Article({ article }) {
     const markup = { __html: cleanMarkup };
 
     return (
-      <>
+      <React.Fragment key={i}>
         <br />
         <div
-          key={i}
           className={styles.markdownContent}
           dangerouslySetInnerHTML={markup}
         />
-      </>
+      </React.Fragment>
     );
   });
 
