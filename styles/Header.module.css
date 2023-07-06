@@ -136,11 +136,11 @@
 }
 
 .navigationMenuActive {
-  border-bottom: 2px solid #e74425;
+  border-bottom: 2px solid #ffda57;
 }
 
 .navigationMenu div:hover {
-  border-bottom: 2px solid #e74425;
+  border-bottom: 2px solid #ffda57;
 }
 
 .navigationMenu div a {
