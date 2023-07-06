@@ -83,8 +83,9 @@
     align-items: center;
     justify-content: center;
     padding: 4vw;
-    padding-right: 4vw;
-    padding-left: 4vw;
+    padding-top: 8vw;
+    padding-bottom: 10vw;
+
     gap: 1em;
   }
   .title {
@@ -104,12 +105,13 @@
     line-height: 1em;
     text-align: center;
   }
-  .textContainer {
-    width: 80vw;
-  }
+
   .video {
     height: 60vh;
     width: auto;
+  }
+  .textContainer {
+    width: 80vw;
   }
 }
 

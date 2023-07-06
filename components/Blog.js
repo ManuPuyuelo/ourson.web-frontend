@@ -23,7 +23,7 @@ function Blog({ articles }) {
     switch (sectionName) {
       case "toutes-les-sections":
         content.currentScreen = "Toutes les sections";
-        content.h1Content = "Bienvenue sur le blog Ourson";
+        content.h1Content = "Bienvenue sur le blog d'Ourson";
         content.h2Content =
           "Découvrez les derniers articles sur toutes les thématiques";
         break;

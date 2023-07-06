@@ -143,17 +143,18 @@
 }
 
 @media screen and (max-width: 1665px) {
-  .titlesContainer {
-    padding: 2vw;
-  }
-
   .sectionContainer {
-    padding: 2vw;
     margin-top: 2vw;
-    margin-left: 8vw;
-    margin-right: 8vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
     background-color: white;
     border-radius: 1em;
+  }
+}
+@media screen and (max-width: 1489px) {
+  .sectionContainer {
+    margin-left: 8vw;
+    margin-right: 8vw;
   }
 }
 
@@ -176,6 +177,12 @@
     padding-top: 8vw;
     padding-left: 4vw;
     padding-right: 4vw;
+  }
+  .pagination {
+    margin-top: 4vw;
+  }
+  .sectionContainer {
+    padding-bottom: 8vw;
   }
 }
 
